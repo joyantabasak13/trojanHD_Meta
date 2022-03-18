@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 #include "component.h"
 
 component::component() {}
@@ -33,18 +34,25 @@ std::vector<bool> component::getNodeState() {
 }
 
 std::vector<float> component::getTransitionProbability() {
-    /********** Initialize p0 and p1 for input with 0.5 **********/
-    for(auto x:in_map) {
-        x.second->p0 = 0.5;
-        x.second->p1 = 0.5;
-    }
-
-    calculateTransitionProbability();
-
     std::vector<float> out_vector;
     for(auto x:wire_map) {
         float pt = x.second->p0 * x.second->p1; // Transition probability, pt = p0*p1;
         out_vector.push_back(pt);
     }
     return out_vector;
+}
+
+int component::getFitnessValue(float theta) {
+    int count = 0;
+    for(auto x:wire_map) {
+        float p0 = x.second->p0;
+        float p1 = x.second->p1;
+        float pt = p0*p1;
+        if(pt < theta) {
+            if((p1 < p0 && x.second->state==1) || (p0 < p1 && x.second->state==0)) {
+                count++;
+            }
+        }
+    }
+    return count;
 }

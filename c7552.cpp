@@ -3736,6 +3736,13 @@ c7552::c7552() {
 
     /********** Size of wires **********/
     n_wire = wire_map.size();
+
+	/********** Calculate transition probability **********/
+	for(auto x:in_map) { // Initialize p0 and p1 for input with 0.5
+        x.second->p0 = 0.5;
+        x.second->p1 = 0.5;
+    }
+    calculateTransitionProbability();
 }
 
 c7552::~c7552(){}

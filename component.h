@@ -38,6 +38,7 @@ public:
     std::vector<bool> getOutput();
     std::vector<bool> getNodeState();
     std::vector<float> getTransitionProbability();
+    int getFitnessValue(float);
     virtual void propagate() = 0;
     virtual void calculateTransitionProbability() = 0;
 };

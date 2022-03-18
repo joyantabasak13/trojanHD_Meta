@@ -34,5 +34,8 @@ int main() {
     }
     std::cout<<std::endl;
 
+    float theta = 0.01; // Threshold value
+    std::cout<<"Fitness value: "<<IC.getFitnessValue(theta);
+
     return 0;
 }

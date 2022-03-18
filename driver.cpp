@@ -1,12 +1,9 @@
 #include <iostream>
 #include <vector>
-
-using namespace std;
-
-// #include "c880.h"
-// #include "c2670.h"
-// #include "c3540.h"
-// #include "c5315.h"
+#include "c880.h"
+#include "c2670.h"
+#include "c3540.h"
+#include "c5315.h"
 #include "c7552.h"
 
 int main() {
@@ -28,6 +25,12 @@ int main() {
 
     for(auto i:node_state) {
         std::cout<<i<<" ";
+    }
+    std::cout<<std::endl;
+
+    std::vector<float> trans_prob = IC.getTransitionProbability();
+    for(auto i:trans_prob) {
+        std::cout<<i<<std::endl;
     }
     std::cout<<std::endl;
 

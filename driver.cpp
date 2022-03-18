@@ -1,9 +1,12 @@
 #include <iostream>
 #include <vector>
-#include "c880.h"
-#include "c2670.h"
-#include "c3540.h"
-#include "c5315.h"
+
+using namespace std;
+
+// #include "c880.h"
+// #include "c2670.h"
+// #include "c3540.h"
+// #include "c5315.h"
 #include "c7552.h"
 
 int main() {

@@ -465,7 +465,7 @@ c880::c880() {
         x.second->p0 = 0.5;
         x.second->p1 = 0.5;
     }
-    calculateTransitionProbability();
+    calculateP0andP1();
 }
 
 c880::~c880(){}
@@ -856,7 +856,7 @@ void c880::propagate() {
 	N880.state = N877.state;
 }
 
-void c880::calculateTransitionProbability() {
+void c880::calculateP0andP1() {
     // nand
 	N269.p0 = N1.p1 * N8.p1 * N13.p1 * N17.p1;
 	N269.p1 = 1 - N269.p0;

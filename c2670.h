@@ -20,7 +20,7 @@ public:
     c2670();
     ~c2670();
     void propagate();
-    void calculateTransitionProbability();
+    void calculateP0andP1();
 };
 
 #endif

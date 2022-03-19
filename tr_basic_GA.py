@@ -21,12 +21,8 @@ print(function_inputs)
 
 
 def fitness_func(solution, solution_idx):
+    # write here
     fitness = 0
-    threshold = 0.3
-    # fitness = random.randint(0, 100)
-    for i, x in enumerate(solution):
-        if fitness_vector[i] < threshold and x == 1:
-            fitness += 1 - fitness_vector[i]
     return fitness
 
 

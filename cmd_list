@@ -1,2 +1,5 @@
 all:
 	g++ -o driver c7552.cpp driver.cpp
+
+# ctype_test command
+g++ -shared -o ctypetestlib.so -fPIC component.cpp c7552.cpp ctype_test_driver.cpp

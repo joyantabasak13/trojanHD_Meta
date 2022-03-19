@@ -2507,7 +2507,7 @@ c5315::c5315() {
         x.second->p0 = 0.5;
         x.second->p1 = 0.5;
     }
-    calculateTransitionProbability();
+    calculateP0andP1();
 }
 
 c5315::~c5315(){}
@@ -4822,7 +4822,7 @@ void c5315::propagate() {
 	N8128.state = ~N8126.state;
 }
 
-void c5315::calculateTransitionProbability() {
+void c5315::calculateP0andP1() {
 	// buf
 	N709.p1 = N141.p1;
 	N709.p0 = 1 - N709.p1;

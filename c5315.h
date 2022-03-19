@@ -17,7 +17,7 @@ public:
     c5315();
     ~c5315();
     void propagate();
-    void calculateTransitionProbability();
+    void calculateP0andP1();
 };
 
 #endif

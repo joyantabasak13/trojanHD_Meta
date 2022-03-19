@@ -1,3 +1,6 @@
+# Folder to exlcude
+.venv
+
 # Prerequisites
 *.d
 

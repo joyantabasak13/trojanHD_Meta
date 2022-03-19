@@ -18,7 +18,7 @@ public:
     c880();
     ~c880();
     void propagate();
-    void calculateTransitionProbability();
+    void calculateP0andP1();
 };
 
 #endif

@@ -1523,7 +1523,7 @@ c2670::c2670() {
         x.second->p0 = 0.5;
         x.second->p1 = 0.5;
     }
-    calculateTransitionProbability();
+    calculateP0andP1();
 }
 
 c2670::~c2670(){}
@@ -2800,7 +2800,7 @@ void c2670::propagate() {
 	N218_O.state = N218_I.state;
 }
 
-void c2670::calculateTransitionProbability() {
+void c2670::calculateP0andP1() {
     // buf
 	N398.p1 = N219.p1;
 	N398.p0 = 1 - N398.p1;

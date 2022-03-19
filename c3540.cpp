@@ -1741,7 +1741,7 @@ c3540::c3540() {
         x.second->p0 = 0.5;
         x.second->p1 = 0.5;
     }
-    calculateTransitionProbability();
+    calculateP0andP1();
 }
 
 c3540::~c3540(){}
@@ -3418,7 +3418,7 @@ void c3540::propagate() {
 	N5361.state = ~(N5358.state & N5359.state);
 }
 
-void c3540::calculateTransitionProbability() {
+void c3540::calculateP0andP1() {
     // buf
 	N655.p1 = N50.p1;
 	N655.p0 = 1 - N655.p1;

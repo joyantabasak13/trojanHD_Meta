@@ -3742,7 +3742,7 @@ c7552::c7552() {
         x.second->p0 = 0.5;
         x.second->p1 = 0.5;
     }
-    calculateTransitionProbability();
+    calculateP0andP1();
 }
 
 c7552::~c7552(){}
@@ -7263,7 +7263,7 @@ void c7552::propagate() {
 	N241_O.state = N241_I.state;
 }
 
-void c7552::calculateTransitionProbability() {
+void c7552::calculateP0andP1() {
     // buf
 	N387.p1 = N1.p1;
 	N387.p0 = 1 - N387.p1;

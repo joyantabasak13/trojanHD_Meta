@@ -18,7 +18,7 @@ public:
     c3540();
     ~c3540();
     void propagate();
-    void calculateTransitionProbability();
+    void calculateP0andP1();
 };
 
 #endif

@@ -40,7 +40,7 @@ public:
     std::vector<float> getTransitionProbability();
     int getFitnessValue(float);
     virtual void propagate() = 0;
-    virtual void calculateTransitionProbability() = 0;
+    virtual void calculateP0andP1() = 0;
 };
 
 #endif

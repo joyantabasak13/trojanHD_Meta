@@ -3,3 +3,6 @@ all:
 
 # ctype_test command
 g++ -shared -o ctypetestlib.so -fPIC component.cpp c7552.cpp ctype_test_driver.cpp
+
+# cffi shared library build command
+g++ -shared -o cffi_driver.so -fPIC component.cpp c880.cpp c2670.cpp c3540.cpp c5315.cpp c7552.cpp cffi_driver.cpp

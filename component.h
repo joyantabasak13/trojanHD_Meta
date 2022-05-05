@@ -38,6 +38,8 @@ public:
     std::vector<bool> getOutput();
     std::vector<bool> getNodeState();
     std::vector<float> getTransitionProbability();
+    std::vector<float> getP0();
+    std::vector<float> getP1();
     int getFitnessValue(float);
     virtual void propagate() = 0;
     virtual void calculateP0andP1() = 0;

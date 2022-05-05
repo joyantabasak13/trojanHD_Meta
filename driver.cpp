@@ -7,7 +7,7 @@
 #include "c7552.h"
 
 int main() {
-    c7552 IC;
+    c880 IC;
     std::vector<bool> test_vector;
     for(size_t i=0; i<IC.n_input; i++) {
         test_vector.push_back(i%2);

@@ -42,6 +42,22 @@ std::vector<float> component::getTransitionProbability() {
     return out_vector;
 }
 
+std::vector<float> component::getP0() {
+    std::vector<float> out_vector;
+    for(auto x:wire_map) {
+        out_vector.push_back(x.second->p0);
+    }
+    return out_vector;
+}
+
+std::vector<float> component::getP1() {
+    std::vector<float> out_vector;
+    for(auto x:wire_map) {
+        out_vector.push_back(x.second->p1);
+    }
+    return out_vector;
+}
+
 int component::getFitnessValue(float theta) {
     int count = 0;
     for(auto x:wire_map) {

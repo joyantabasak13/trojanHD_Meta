@@ -1,5 +1,6 @@
 #include "cffi_driver.h"
 #include <vector>
+#include <iostream>
 
 c880* IC_c880;
 
@@ -97,6 +98,7 @@ unsigned int c2670NumWire() {
 
 void c2670LoadInput(bool *in, int len) {
     std::vector<bool> in_vector(in, in + len);
+    std::cout<<len<<" "<<in_vector.size()<<std::endl;
     IC_c2670->loadInput(in_vector);
 }
 

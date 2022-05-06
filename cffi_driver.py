@@ -82,50 +82,52 @@ ffi.cdef(funDef)
 
 # Use FFI
 theta=0.01
-c_lib.c880Init()
+c_lib.c2670Init()
 
-c880_n_input = c_lib.c880NumInput()
-c880_n_output = c_lib.c880NumOutput()
-c880_n_wire = c_lib.c880NumWire()
-print(c880_n_input, c880_n_output, c880_n_wire)
+c2670_n_input = c_lib.c2670NumInput()
+c2670_n_output = c_lib.c2670NumOutput()
+c2670_n_wire = c_lib.c2670NumWire()
+print(c2670_n_input, c2670_n_output, c2670_n_wire)
 
 # For testing input-output
-choices = [False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True]
-in_arr = np.array(choices, dtype=np.bool8)
+# choices = [False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True, False, True]
+# in_arr = np.array(choices, dtype=np.bool8)
 
 # For random input
-# choices = [True, False]
-# in_arr = np.random.choice(choices, size=c880_n_input)
+choices = [True, False]
+in_arr = np.random.choice(choices, size=c2670_n_input)
 
-c_lib.c880LoadInput(ffi.cast("bool *", in_arr.ctypes.data), len(in_arr))
+print(len(in_arr))
 
-c_lib.c880Propagate()
+c_lib.c2670LoadInput(ffi.cast("bool *", in_arr.ctypes.data), len(in_arr))
 
-out_arr = np.zeros(c880_n_output, dtype=np.bool8)
-c_lib.c880GetOutput(ffi.cast("bool *", out_arr.ctypes.data), len(out_arr))
+c_lib.c2670Propagate()
+
+out_arr = np.zeros(c2670_n_output, dtype=np.bool8)
+c_lib.c2670GetOutput(ffi.cast("bool *", out_arr.ctypes.data), len(out_arr))
 
 print(out_arr)
 
-node_state_arr = np.zeros(c880_n_wire, dtype=np.bool8)
-c_lib.c880GetNodeState(ffi.cast("bool *", node_state_arr.ctypes.data), len(node_state_arr))
+node_state_arr = np.zeros(c2670_n_wire, dtype=np.bool8)
+c_lib.c2670GetNodeState(ffi.cast("bool *", node_state_arr.ctypes.data), len(node_state_arr))
 
 print(node_state_arr)
 
-c880_trans_prob = np.zeros(c880_n_wire, dtype=np.float32)
-c_lib.c880GetTransitionProbability(ffi.cast("float *", c880_trans_prob.ctypes.data), len(c880_trans_prob))
+c2670_trans_prob = np.zeros(c2670_n_wire, dtype=np.float32)
+c_lib.c2670GetTransitionProbability(ffi.cast("float *", c2670_trans_prob.ctypes.data), len(c2670_trans_prob))
 
-c880_P0 = np.zeros(c880_n_wire, dtype=np.float32)
-c_lib.c880GetP0(ffi.cast("float *", c880_P0.ctypes.data), len(c880_P0))
+c2670_P0 = np.zeros(c2670_n_wire, dtype=np.float32)
+c_lib.c2670GetP0(ffi.cast("float *", c2670_P0.ctypes.data), len(c2670_P0))
 
-c880_P1 = np.zeros(c880_n_wire, dtype=np.float32)
-c_lib.c880GetP1(ffi.cast("float *", c880_P1.ctypes.data), len(c880_P1))
+c2670_P1 = np.zeros(c2670_n_wire, dtype=np.float32)
+c_lib.c2670GetP1(ffi.cast("float *", c2670_P1.ctypes.data), len(c2670_P1))
 
 with np.printoptions(precision=10, suppress=True):
-    print(c880_trans_prob)
-    print(c880_P0)
-    print(c880_P1)
+    print(c2670_trans_prob)
+    print(c2670_P0)
+    print(c2670_P1)
 
-c880_fitness_value = c_lib.c880GetFitnessValue(theta)
-print(c880_fitness_value)
+c2670_fitness_value = c_lib.c2670GetFitnessValue(theta)
+print(c2670_fitness_value)
 
-c_lib.c880Delete()
+c_lib.c2670Delete()

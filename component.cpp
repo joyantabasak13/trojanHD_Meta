@@ -8,6 +8,7 @@ component::~component() {}
 
 void component::loadInput(std::vector<bool> in_vector) {
     if(in_vector.size() != n_input) {
+        std::cout<<n_input<<" "<<in_vector.size()<<std::endl;
         std::cout<<"Invalid input vector size"<<std::endl;
         exit(-1);
     }
